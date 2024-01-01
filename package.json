@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "eCommerce application build with MERN stack",
   "type": "module",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node server.js",
-    "server": "nodemon server.js",
+    "start": "node index.js",
+    "server": "nodemon index.js",
     "data:import": "node seeder",
     "data:destroy": "node seeder -d", 
     "build": "npm install"
