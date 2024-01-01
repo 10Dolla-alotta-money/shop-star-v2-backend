@@ -1,6 +1,6 @@
 {
-  "name": "shopstar",
-  "version": "1.0.0",
+  "name": "shopstar-backend",
+  "version": "2.0.0",
   "description": "eCommerce application build with MERN stack",
   "type": "module",
   "main": "index.js",
