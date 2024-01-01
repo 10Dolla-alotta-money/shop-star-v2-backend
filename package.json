@@ -5,10 +5,10 @@
   "type": "module",
   "main": "server.js",
   "scripts": {
-    "start": "node backend/server.js",
-    "server": "nodemon backend/server.js",
-    "data:import": "node backend/seeder",
-    "data:destroy": "node backend/seeder -d", 
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "data:import": "node seeder",
+    "data:destroy": "node seeder -d", 
     "build": "npm install"
   },
   "author": "Zarman",
