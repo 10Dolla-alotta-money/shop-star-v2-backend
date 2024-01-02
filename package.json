@@ -12,9 +12,7 @@
     "build": "npm install && npm run server "
   },
   "author": "Zarman", 
-  "engines": {
-    "node": "18.x"
-  },
+  
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",
