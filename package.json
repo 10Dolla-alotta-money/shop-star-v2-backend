@@ -9,7 +9,7 @@
     "server": "nodemon index.js",
     "data:import": "node seeder",
     "data:destroy": "node seeder -d", 
-    "build": "npm run server "
+    "build": "npm i & npm run server "
   },
   "author": "Zarman",
   "license": "MIT",
