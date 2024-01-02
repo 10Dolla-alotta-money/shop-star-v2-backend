@@ -9,9 +9,12 @@
     "server": "nodemon index.js",
     "data:import": "node seeder",
     "data:destroy": "node seeder -d", 
-    "build": "npm i & npm run server "
+    "build": "npm install && npm run server "
   },
-  "author": "Zarman",
+  "author": "Zarman", 
+  "engines": {
+    "node": "21.5.0"
+  },
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",
