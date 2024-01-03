@@ -25,7 +25,7 @@ app.use('/api/users', userRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/upload', uploadRoutes);  
 
-app.get('/', (req, res)=> res.status(200).json({message:'Hello server'}))
+
 
 app.get('/api/config/paypal', (req, res) =>
   res.send({ clientId: process.env.PAYPAL_CLIENT_ID })
@@ -46,7 +46,8 @@ if (process.env.NODE_ENV === 'production') {
   );
 } else {
 
-  app.get('/', (req, res) => res.send('Server is up'));
+  app.get('/', (req, res) => res.send('Server is up')); 
+  
 
   // const __dirname = path.resolve();
 
