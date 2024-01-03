@@ -8,8 +8,8 @@
     "start": "node index.js", 
     "server": "nodemon index.js",
     "dev": "npm run server",
-    "data:import": "node backend/seeder",
-    "data:destroy": "node backend/seeder -d"
+    "data:import": "nod seeder",
+    "data:destroy": "nod seeder -d"
   },
   "author": "Zarman", 
   "license": "MIT",
