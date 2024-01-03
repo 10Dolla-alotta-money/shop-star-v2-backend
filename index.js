@@ -48,7 +48,6 @@ if (process.env.NODE_ENV === 'production') {
 
   app.get('/', (req, res) => res.send('Server is up')); 
   
-
   // const __dirname = path.resolve();
 
 
