@@ -3,10 +3,10 @@
   "version": "2.0.0",
   "description": "eCommerce application build with MERN stack",
   "type": "module",
-  "main": "api/index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node api/index.js", 
-    "server": "nodemon api/index.js",
+    "start": "node server.js", 
+    "server": "nodemon server.js",
     "data:import": "nod seeder",
     "data:destroy": "nod seeder -d", 
     "dev": "npm run server", 
