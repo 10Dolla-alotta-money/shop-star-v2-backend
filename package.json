@@ -8,8 +8,7 @@
     "start": "node server.js", 
     "dev": "nodemon server.js",
     "data:import": "nod seeder",
-    "data:destroy": "nod seeder -d", 
-    "vercel-build":"echo hello"
+    "data:destroy": "nod seeder -d"
   },
   "author": "Zarman", 
   "license": "MIT",
