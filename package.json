@@ -5,12 +5,12 @@
   "type": "module",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js", 
+    "start": "node server.js",
     "dev": "nodemon server.js",
-    "data:import": "nod seeder",
-    "data:destroy": "nod seeder -d"
+    "data:import": "node seeder",
+    "data:destroy": "node seeder -d"
   },
-  "author": "Zarman", 
+  "author": "Zarman",
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",
