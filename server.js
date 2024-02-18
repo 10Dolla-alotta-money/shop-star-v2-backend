@@ -28,7 +28,8 @@ app.use('/api/products', productRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/upload', uploadRoutes);
-
+app.use(notFound);
+app.use(errorHandler);
 app.get('/api/config/paypal', (req, res) =>
   res.send({ clientId: process.env.PAYPAL_CLIENT_ID })
 );
@@ -49,7 +50,7 @@ if (process.env.NODE_ENV === 'production') {
     res.sendFile(path.resolve(__dirname, 'frontend', 'dist', 'index.html'))
   );
 } else {
-  app.get('/', (req, res) => res.send('Server is up'));
+  app.get('/', (req, res) => res.send('express api is running '));
 
   const __dirname = path.resolve();
 
@@ -59,9 +60,6 @@ if (process.env.NODE_ENV === 'production') {
     res.send('API is running....');
   });
 }
-
-app.use(notFound);
-app.use(errorHandler);
 
 app.listen(port, () =>
   console.log(
