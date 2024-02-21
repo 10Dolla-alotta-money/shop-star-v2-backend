@@ -19,6 +19,7 @@ const app = express();
 
 //* Body Parser
 app.use(express.json());
+
 //* Dev logging middleware
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
@@ -63,7 +64,7 @@ if (process.env.NODE_ENV === 'production') {
 
 app.listen(port, () =>
   console.log(
-    `Server running in ${process.env.NODE_ENV} mode on port ${port}`.cyan
+    `Server running in ${process.env.NODE_ENV} mode on port ${port}`.cyan.bold
   )
 );
 
