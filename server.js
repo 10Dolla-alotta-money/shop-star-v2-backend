@@ -19,6 +19,10 @@ const app = express();
 
 //* Body Parser
 app.use(express.json());
+//* Dev logging middleware
+if (process.env.NODE_ENV === 'development') {
+  app.use(morgan('dev'));
+}
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -30,14 +34,10 @@ app.use('/api/orders', orderRoutes);
 app.use('/api/upload', uploadRoutes);
 app.use(notFound);
 app.use(errorHandler);
+
 app.get('/api/config/paypal', (req, res) =>
   res.send({ clientId: process.env.PAYPAL_CLIENT_ID })
 );
-
-//* Dev logging middleware
-if (process.env.NODE_ENV === 'development') {
-  app.use(morgan('dev'));
-}
 
 if (process.env.NODE_ENV === 'production') {
   const __dirname = path.resolve();
