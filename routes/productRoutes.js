@@ -1,15 +1,15 @@
 import express from 'express';
-const router = express.Router();
 import {
-  getProducts,
-  getProductById,
   createProduct,
-  updateProduct,
-  deleteProduct,
   createProductReview,
+  deleteProduct,
+  getProductById,
+  getProducts,
   getTopProducts,
+  updateProduct,
 } from '../controllers/productController.js';
-import { protect, admin } from '../middleware/authMiddle.js';
+import { admin, protect } from '../middleware/authMiddle.js';
+const router = express.Router();
 
 router.route('/').get(getProducts).post(protect, admin, createProduct);
 

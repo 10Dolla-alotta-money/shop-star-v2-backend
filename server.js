@@ -1,8 +1,8 @@
 import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
 import express from 'express';
-import path from 'path';
 import morgan from 'morgan';
+import path from 'path';
 import connectDB from './config/db.js';
 import { errorHandler, notFound } from './middleware/errorMiddleware.js';
 import orderRoutes from './routes/orderRoutes.js';
@@ -36,31 +36,29 @@ app.use('/api/upload', uploadRoutes);
 app.use(notFound);
 app.use(errorHandler);
 
-app.get('/api/config/paypal', (req, res) =>
-  res.send({ clientId: process.env.PAYPAL_CLIENT_ID })
-);
+// app.get('/api/config/paypal', (req, res) =>
+//   res.send({ clientId: process.env.PAYPAL_CLIENT_ID })
+// );
 
-if (process.env.NODE_ENV === 'production') {
-  const __dirname = path.resolve();
+// if (process.env.NODE_ENV === 'production') {
+//   const __dirname = path.resolve();
 
-  app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
+//   app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
 
-  app.use(express.static(path.join(__dirname, '/frontend/dist')));
+//   app.use(express.static(path.join(__dirname, '/frontend/dist')));
 
-  app.get('*', (req, res) =>
-    res.sendFile(path.resolve(__dirname, 'frontend', 'dist', 'index.html'))
-  );
-} else {
-  app.get('/', (req, res) => res.send('express api is running '));
+//   app.get('*', (req, res) =>
+//     res.sendFile(path.resolve(__dirname, 'frontend', 'dist', 'index.html'))
+//   );
+// } else {
+//   app.get('/', (req, res) => res.send('express api is running '));
 
-  const __dirname = path.resolve();
-
-  app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
-
-  app.get('/', (req, res) => {
-    res.send('API is running....');
-  });
-}
+//   const __dirname = path.resolve();
+//   app.get('/', (req, res) => {
+//     res.send('API is running....');
+//   });
+//   app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
+// }
 
 app.listen(port, () =>
   console.log(

@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
-import asyncHandler from './asyncHandler.js';
 import User from '../models/userModel.js';
+import asyncHandler from './asyncHandler.js';
 
 // Protect routes
 const protect = asyncHandler(async (req, res, next) => {
@@ -35,4 +35,4 @@ const admin = (req, res, next) => {
   }
 };
 
-export { protect, admin };
+export { admin, protect };

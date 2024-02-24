@@ -1,17 +1,17 @@
 import express from 'express';
-const router = express.Router();
 import {
   authUser,
-  registerUser,
-  logoutUser,
-  getUserProfile,
-  updateUserProfile,
-  getUsers,
   deleteUser,
   getUserById,
+  getUserProfile,
+  getUsers,
+  logoutUser,
+  registerUser,
   updateUser,
+  updateUserProfile,
 } from '../controllers/userController.js';
-import { protect, admin } from '../middleware/authMiddle.js';
+import { admin, protect } from '../middleware/authMiddle.js';
+const router = express.Router();
 
 router.route('/').post(registerUser).get(protect, admin, getUsers);
 
