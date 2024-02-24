@@ -2,11 +2,11 @@ import jwt from 'jsonwebtoken';
 import User from '../models/userModel.js';
 import asyncHandler from './asyncHandler.js';
 
-// Protect routes
+//? Protect routes
 const protect = asyncHandler(async (req, res, next) => {
   let token;
 
-  // Read the jwt from the cookie
+  //? Read the jwt from the cookie
   token = req.cookies.jwt;
 
   if (token) {
@@ -24,7 +24,7 @@ const protect = asyncHandler(async (req, res, next) => {
   }
 });
 
-// admin middleware
+//? admin middleware
 
 const admin = (req, res, next) => {
   if (req.user && req.user.isAdmin) {
