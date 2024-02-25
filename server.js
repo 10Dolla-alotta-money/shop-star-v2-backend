@@ -2,6 +2,12 @@ import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
 import express from 'express';
 import morgan from 'morgan';
+import mongoSanitize from 'express-mongo-sanitize';
+import helmet from 'helmet';
+import xss from 'xss-clean';
+import rateLimit from 'express-rate-limit';
+import hpp from 'hpp';
+import cors from 'cors';
 import connectDB from './config/db.js';
 import { errorHandler, notFound } from './middleware/errorMiddleware.js';
 import orderRoutes from './routes/orderRoutes.js';
@@ -23,6 +29,29 @@ app.use(express.json());
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
+
+//? Sanitize Data middleware
+app.use(mongoSanitize());
+
+//? Set security header
+app.use(helmet());
+
+//? prevent cross site scripting
+app.use(xss());
+
+//? Rate Limit
+const limiter = rateLimit({
+  windowMS: 10 * 60 * 1000, //? this is for 10 minutes
+  max: 100,
+});
+
+app.use(limiter);
+
+//Prevent http param pollution
+app.use(limiter);
+
+app.use(hpp());
+app.use(cors());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

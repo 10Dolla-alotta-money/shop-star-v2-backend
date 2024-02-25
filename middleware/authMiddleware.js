@@ -1,7 +1,6 @@
 import jwt from 'jsonwebtoken';
 import User from '../models/userModel.js';
 import asyncHandler from './asyncHandler.js';
-
 // Protect routes
 const protect = asyncHandler(async (req, res, next) => {
   let token;
