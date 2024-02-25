@@ -2,7 +2,6 @@ import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
 import express from 'express';
 import morgan from 'morgan';
-import path from 'path';
 import connectDB from './config/db.js';
 import { errorHandler, notFound } from './middleware/errorMiddleware.js';
 import orderRoutes from './routes/orderRoutes.js';
@@ -29,6 +28,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
+app.get('/', (req, res) => res.json({ message: 'Wassup from server ' }));
+
 app.use('/api/products', productRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/orders', orderRoutes);
@@ -36,9 +37,9 @@ app.use('/api/upload', uploadRoutes);
 app.use(notFound);
 app.use(errorHandler);
 
-// app.get('/api/config/paypal', (req, res) =>
-//   res.send({ clientId: process.env.PAYPAL_CLIENT_ID })
-// );
+app.get('/api/config/paypal', (req, res) =>
+  res.send({ clientId: process.env.PAYPAL_CLIENT_ID })
+);
 
 // if (process.env.NODE_ENV === 'production') {
 //   const __dirname = path.resolve();
@@ -51,13 +52,9 @@ app.use(errorHandler);
 //     res.sendFile(path.resolve(__dirname, 'frontend', 'dist', 'index.html'))
 //   );
 // } else {
-//   app.get('/', (req, res) => res.send('express api is running '));
-
 //   const __dirname = path.resolve();
-//   app.get('/', (req, res) => {
-//     res.send('API is running....');
-//   });
 //   app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
+//   app.get('/', (req, res) => res.send('express api is running '));
 // }
 
 app.listen(port, () =>
