@@ -118,18 +118,18 @@ const updateUserProfile = asyncHandler(async (req, res) => {
   }
 });
 
-// @desc Get users
-// @route GET /api/users
-// @access Private/Admin
+//what is =>Get users
+//** routes => GET /api/users
+//? who can access this endpoint => Admin
 
 const getUsers = asyncHandler(async (req, res) => {
   const users = await User.find({});
   res.status(200).json(users);
 });
 
-// @desc Get user by ID
-// @route GET /api/users/:id
-// @access Private/Admin
+//what is =>Get user by ID
+//** routes => GET /api/users/:id
+//? who can access this endpoint => Admin
 
 const getUserById = asyncHandler(async (req, res) => {
   const user = await User.findById(req.params.id).select('-password');
@@ -141,9 +141,9 @@ const getUserById = asyncHandler(async (req, res) => {
   }
 });
 
-// @desc Delete users
-// @route DELETE /api/users/:id
-// @access Private/Admin
+//what is => Delete users
+//** routes => DELETE /api/users/:id
+//? who can access this endpoint => Private/Admin
 
 const deleteUser = asyncHandler(async (req, res) => {
   const user = await User.findById(req.params.id);
@@ -161,9 +161,9 @@ const deleteUser = asyncHandler(async (req, res) => {
   }
 });
 
-// @desc Update users
-// @route PUT /api/users/:id
-// @access Private/Admin
+//what is => Update users
+//** routes => PUT /api/users/:id
+//? who can access this endpoint => Private/Admin
 
 const updateUser = asyncHandler(async (req, res) => {
   const user = await User.findById(req.params.id);
@@ -189,12 +189,12 @@ const updateUser = asyncHandler(async (req, res) => {
 
 export {
   authUser,
-  registerUser,
-  logoutUser,
-  getUserProfile,
-  updateUserProfile,
-  getUsers,
   deleteUser,
   getUserById,
+  getUserProfile,
+  getUsers,
+  logoutUser,
+  registerUser,
   updateUser,
+  updateUserProfile,
 };
